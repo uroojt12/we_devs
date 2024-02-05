@@ -1,0 +1,2400 @@
+/*
+|----------------------------------------------------------------------
+|		Logo
+|----------------------------------------------------------------------
+*/
+
+.logo {
+  position: relative;
+  @include flex(center, center);
+  width: 100%;
+  max-width: 8rem;
+  height: 8rem;
+  > a {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    > img {
+      height: 100%;
+      @include object(contain, left center);
+      @include trans;
+      footer & {
+        @include filter(1);
+      }
+    }
+  }
+  header & {
+    float: left;
+    max-width: 14rem;
+    // margin-left: 5rem;
+    // margin: 0.5rem 0 0;
+    @include trans;
+    @include ipad_sm {
+      margin-left: 0;
+    }
+  }
+  footer & {
+    max-width: 16rem;
+    height: auto;
+    margin-bottom: 3rem;
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Header
+|----------------------------------------------------------------------
+*/
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* background: var(--light);
+	-webkit-box-shadow: 0 0.5rem 2.5rem rgba(var(--black_rgb), 0.04);
+	box-shadow: 0 0.5rem 2.5rem rgba(var(--black_rgb), 0.04); */
+  @include trans;
+  z-index: 30;
+  .header_btn {
+    @include flex(center);
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include ipad_sm {
+      bottom: 0;
+    }
+    > a {
+      font-size: 2.4rem;
+      height: 12rem;
+      padding: 0 6rem;
+      border-radius: 0;
+      text-transform: uppercase;
+      @include ipad_sm {
+        display: none;
+      }
+    }
+    .toggle {
+      position: relative;
+      left: 0;
+      margin-right: 2rem;
+      &_btn {
+        @include flex(center);
+        @include gap(0 1rem);
+        text-transform: uppercase;
+      }
+    }
+  }
+  .toggle {
+    @include ipad_sm {
+      left: initial;
+      right: 2rem;
+    }
+  }
+}
+
+#nav {
+  @include flex(center, flex-end);
+  height: 8rem;
+  padding-left: 8rem;
+  @include ipad {
+    @include pos($pos: fixed, $t: 7rem);
+    @include flex(center, flex-start, column);
+    gap: 2rem;
+    grid-gap: 2rem;
+    height: auto;
+    background: var(--light);
+    padding: 3rem 1.5rem;
+    border-top: 0.1rem solid var(--light_gray);
+    @include visible(hide);
+    overflow: hidden;
+    overflow-y: auto;
+    @include trans;
+  }
+  &.active {
+    @include visible(show);
+  }
+  > ul {
+    @include list;
+    @include flex(center);
+    @include gap(1rem 4rem);
+    @include flex_grow(1);
+    @include ipad {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+      flex-flow: column;
+    }
+    > li {
+      > a:not(.site_btn) {
+        position: relative;
+        @include flex(center, center);
+        height: 4rem;
+        color: var(--black);
+        font-size: 1.8rem;
+        font-family: var(--font-quicksand);
+        text-align: center;
+        white-space: nowrap;
+        @include ipad {
+          height: auto;
+        }
+        &.active,
+        &:hover,
+        &:focus {
+          color: var(--prime_color);
+        }
+      }
+      &:nth-last-child(1) {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+#navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--light);
+  @include visible(hide);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 100;
+  &.active {
+    @include visible(show);
+    #nav_list {
+      > li {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+    }
+    .social_list {
+      opacity: 1;
+      @include transform(translateY(0));
+    }
+  }
+  #wrapper {
+    @include pos($z: 2);
+    @include flex(center, center, wrap);
+    width: 100%;
+    height: 100vh;
+    padding: 5rem 8rem;
+    overflow-y: auto;
+    @include mobile_md {
+      padding: 5rem;
+    }
+  }
+  #nav_list {
+    @include list;
+    margin-bottom: 4rem;
+    > li {
+      @include flex(center, center);
+      margin-bottom: 1rem;
+      opacity: 0;
+      @include transform(translateY(5rem));
+      &:nth-child(1) {
+        -webkit-transition: all 0.3s 0.2s;
+        transition: all 0.3s 0.2s;
+      }
+      &:nth-child(2) {
+        -webkit-transition: all 0.3s 0.3s;
+        transition: all 0.3s 0.3s;
+      }
+      &:nth-child(3) {
+        -webkit-transition: all 0.3s 0.4s;
+        transition: all 0.3s 0.4s;
+      }
+      &:nth-child(4) {
+        -webkit-transition: all 0.3s 0.5s;
+        transition: all 0.3s 0.5s;
+      }
+      &:nth-child(5) {
+        -webkit-transition: all 0.3s 0.6s;
+        transition: all 0.3s 0.6s;
+      }
+      > a {
+        font-size: 4rem;
+      }
+    }
+  }
+  .social_list {
+    @include list;
+    @include flex(center, center);
+    @include gap(1rem);
+    opacity: 0;
+    @include transform(translateY(5rem));
+    -webkit-transition: all 0.3s 0.8s;
+    transition: all 0.3s 0.8s;
+    > li {
+      > a {
+        @include flex(center, center);
+        width: 4.6rem;
+        min-width: 4.6rem;
+        height: 4.6rem;
+        background: #444;
+        padding: 1.4rem;
+        border-radius: 75%;
+        &:hover {
+          opacity: 0.8;
+        }
+        > img {
+          @include filter(1);
+        }
+      }
+    }
+  }
+  .toggle {
+    top: 2rem;
+    left: initial;
+    right: 2rem;
+    bottom: initial;
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Banner
+|----------------------------------------------------------------------
+*/
+
+#banner {
+  margin-top: -8rem;
+  background-size: 0;
+  &::before {
+    // content: "";
+    @include pos($z: 1);
+    background-image: inherit;
+    @include bg(contain, right);
+    // background: var(--black);
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    // opacity: 0.7;
+  }
+  .contain {
+    position: relative;
+    z-index: 3;
+  }
+  .wrapper {
+    @include flex(center);
+    padding: 18rem 0 10rem;
+    @include ipad_sm {
+      @include flex($flow: wrap);
+      padding: 14rem 0 10rem;
+    }
+    @include mobile_md {
+      padding: 12rem 0 8rem;
+    }
+    .content {
+      width: 100%;
+      // max-width: 90rem;
+      max-width: 76rem;
+      // color: var(--light);
+      // margin: 0 auto 5rem;
+      h1 {
+        font-size: 6.4rem;
+        @include mobile_md {
+          font-size: 4.2rem;
+        }
+        > span {
+          font-family: var(--font-museo-sans);
+          font-weight: 400;
+        }
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 200;
+        max-width: 56rem;
+        margin: 3rem 0;
+        @include mobile_md {
+          margin: 2rem 0;
+        }
+      }
+    }
+    .video {
+      position: relative;
+      /* width: 40rem;
+			min-width: 40rem;
+			height: 26rem; */
+      width: 60rem;
+      min-width: 60rem;
+      height: 36rem;
+      margin-left: auto;
+      border-radius: 20rem;
+      overflow: hidden;
+      @include ipad_sm {
+        width: 100%;
+        min-width: initial;
+        max-width: 60rem;
+        margin: 3rem auto 0;
+      }
+      @include mobile_md {
+        height: 20rem;
+      }
+      > video {
+        @include pos;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+    .image {
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Serve
+|----------------------------------------------------------------------
+*/
+
+#serve {
+  padding: 12rem 0;
+  @include ipad_sm {
+    padding: 8rem 0;
+  }
+  .wrapper {
+    @include flex($flow: wrap);
+    margin: -1.5rem;
+    > .column {
+      width: 33.333%;
+      padding: 1.5rem;
+      @include flex;
+      @include ipad_sm {
+        width: 50%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+  .content {
+    max-width: 80rem;
+    margin: 0 0 6rem;
+    font-size: 3rem;
+    font-weight: 200;
+    @include ipad_sm {
+      margin: 0 0 4rem;
+      font-size: 2rem;
+    }
+    h1 {
+      font-size: 10rem;
+      @include ipad_sm {
+        font-size: 6rem;
+      }
+      @include mobile_md {
+        font-size: 4rem;
+      }
+      > span {
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+  }
+  .serve_blk {
+    width: 100%;
+    background: var(--light);
+    padding: 5rem;
+    border-radius: 2rem;
+    -webkit-box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+    box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+    @include ipad_sm {
+      padding: 3rem;
+    }
+    .ico {
+      width: 4rem;
+      min-width: 4rem;
+      height: 4rem;
+      margin-bottom: 2rem;
+      > img {
+        @include filter(0);
+        opacity: 0.1;
+      }
+    }
+    p {
+      // color: var(--dark_gray);
+      font-weight: 300;
+    }
+  }
+  .join_brand {
+    .brand_screen {
+      max-width: 100rem;
+      margin: 0 auto 1rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+    .ul_outer {
+      max-width: 80rem;
+      margin: 3rem auto 0;
+      ul {
+        @include list;
+        @include flex(center, center, wrap);
+        margin: -1rem;
+        > li {
+          width: 25%;
+          padding: 1rem;
+          @include mobile_md {
+            width: 50%;
+          }
+          .brand_img {
+            width: 14rem;
+            min-width: 14rem;
+            height: 8rem;
+            margin: auto;
+            > img {
+              @include object(contain);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Intro
+|----------------------------------------------------------------------
+*/
+
+#intro {
+  color: var(--prime_color);
+  padding: 12rem 2rem 10rem;
+  @include ipad_sm {
+    padding: 8rem 2rem;
+  }
+  &::before {
+    content: "";
+    @include pos($l: 2rem, $r: 2rem, $z: 1);
+    // background: #dbdbdb;
+    background: var(--black);
+    border-radius: 12rem;
+    @include ipad_sm {
+      border-radius: 6rem;
+    }
+  }
+  .contain {
+    position: relative;
+    z-index: 3;
+  }
+  h1 {
+    font-size: 16rem;
+    margin-bottom: 3rem;
+    @include ipad {
+      font-size: 12rem;
+    }
+    @include ipad_sm {
+      font-size: 6rem;
+    }
+    @include mobile_md {
+      font-size: 4rem;
+    }
+    > span {
+      color: var(--light);
+      font-weight: 400;
+      font-family: var(--font-museo-sans);
+    }
+  }
+  .content {
+    @include flex;
+    @include gap(0 10rem);
+    font-size: 2.4rem;
+    margin-bottom: 6rem;
+    @include ipad_sm {
+      display: block;
+    }
+    @include mobile_md {
+      font-size: 1.8rem;
+      margin-bottom: 4rem;
+    }
+  }
+  .wrapper {
+    @include flex(center, space-evenly);
+    @include gap(0 6rem);
+    @include ipad_sm {
+      display: block;
+    }
+    > .column {
+      width: 30%;
+      @include ipad_sm {
+        width: 100%;
+      }
+    }
+  }
+  .image {
+    max-width: 50rem;
+    @include ipad_sm {
+      max-width: 40rem;
+      margin-bottom: 3rem;
+    }
+  }
+  & + #reviews {
+    margin-top: 12rem;
+    @include ipad_sm {
+      margin-top: 8rem;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Reviews
+|----------------------------------------------------------------------
+*/
+
+#reviews {
+  background: #dbdbdb;
+  padding: 12rem 0;
+  border-radius: 12rem;
+  overflow: hidden;
+  @include ipad_sm {
+    padding: 8rem 0;
+    border-radius: 6rem;
+  }
+  .image {
+    @include pos($r: 50%);
+    @include ipad_sm {
+      position: relative;
+      right: 0;
+      padding-bottom: 60%;
+      margin-top: -8rem;
+      margin-bottom: 6rem;
+    }
+    > img {
+      @include object($fill: true);
+    }
+  }
+  .video {
+    @include pos($r: 50%);
+    > video {
+      @include pos;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+  .wrapper {
+    width: 50%;
+    margin-left: auto;
+    padding-left: 5rem;
+    @include ipad_sm {
+      width: 100%;
+      margin: auto;
+      padding: 0;
+    }
+    .content {
+      margin-bottom: 8rem;
+      @include ipad_sm {
+        margin-bottom: 3rem;
+      }
+      h2 {
+        font-size: 10rem;
+        @include ipad_sm {
+          font-size: 6rem;
+        }
+        > em {
+          display: block;
+          font-weight: 400;
+          font-family: var(--font-museo-sans);
+          @include transform(skewX(-15deg));
+          @include ipad {
+            font-size: 9rem;
+          }
+          @include mobile_md {
+            font-size: inherit;
+          }
+        }
+      }
+    }
+  }
+  .btn_blk {
+    text-align: right;
+  }
+  @at-root {
+    .folio_blk {
+      @include flex($flow: column);
+      width: 100%;
+      background: var(--light);
+      padding: 6rem 5rem;
+      border-radius: 3rem;
+      -webkit-box-shadow: 0 0.5rem 1.5rem rgba(var(--black_rgb), 0.08);
+      box-shadow: 0 0.5rem 1.5rem rgba(var(--black_rgb), 0.08);
+      @include mobile_md {
+        padding: 4rem 3rem;
+      }
+      .text {
+        margin: 3rem 0;
+      }
+      .title {
+        @include flex(flex-start, space-between);
+        width: 100%;
+        margin: auto 0 -8rem;
+        @include mobile_md {
+          margin-bottom: -7rem;
+        }
+      }
+      .ico {
+        width: 6rem;
+        min-width: 6rem;
+        height: 6rem;
+      }
+    }
+    .slick_reviews {
+      margin-left: -15rem;
+      margin-bottom: 6rem;
+      @include ipad_sm {
+        margin: 0;
+      }
+      > div {
+        margin: -4rem -2rem;
+        padding: 3rem 1rem;
+        @include mobile_md {
+          margin: -4rem -1rem;
+          padding: 3rem 0;
+        }
+        > div {
+          @include flex;
+          > div {
+            @include flex;
+            height: auto;
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Differ
+|----------------------------------------------------------------------
+*/
+
+#differ {
+  padding: 12rem 0;
+  @include ipad_sm {
+    padding: 8rem 0;
+  }
+  .content {
+    max-width: 100rem;
+    margin-bottom: 8rem;
+    @include ipad_sm {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 14rem;
+      @include ipad {
+        font-size: 12rem;
+      }
+      @include ipad_sm {
+        font-size: 6rem;
+      }
+      @include mobile_md {
+        font-size: 4.4rem;
+      }
+      > span {
+        @include flex;
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+        em {
+          margin-left: 2rem;
+          @include transform(skewX(-15deg));
+        }
+      }
+    }
+    p {
+      max-width: 68rem;
+      font-size: 3rem;
+      font-weight: 300;
+      @include ipad_sm {
+        font-size: 2rem;
+      }
+    }
+  }
+  .wrapper {
+    @include flex($flow: wrap);
+    margin: -1.5rem;
+    > .column {
+      width: 25%;
+      padding: 1.5rem;
+      @include ipad_sm {
+        width: 50%;
+      }
+      @include mobile_md {
+        width: 100%;
+      }
+      &:nth-child(1) {
+        width: 50%;
+        @include ipad_sm {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .image {
+    position: relative;
+    width: 100%;
+    padding-bottom: 160%;
+    border-radius: 4rem;
+    overflow: hidden;
+    @include mobile_md {
+      padding-bottom: 80%;
+      border-radius: 3rem;
+    }
+    > img {
+      @include object($fill: true);
+    }
+  }
+  .image_blk {
+    @include flex(center);
+    .image {
+      padding-bottom: 90%;
+      @include mobile_md {
+        padding-bottom: 120%;
+      }
+    }
+  }
+  .inner {
+    position: relative;
+    background: var(--light);
+    margin: -5rem 2rem 0;
+    padding: 3rem;
+    border-radius: 3rem;
+    -webkit-box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+    box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+    z-index: 2;
+    @include mobile_md {
+      border-radius: 2rem;
+    }
+  }
+  .list {
+    @include list;
+    @include flex($flow: column);
+    position: relative;
+    width: 22rem;
+    min-width: 22rem;
+    margin-left: -6rem;
+    z-index: 1;
+    > li:not(:nth-last-child(1)) {
+      margin-bottom: 1.5rem;
+    }
+    .inr {
+      @include flex(center);
+    }
+    .num {
+      position: relative;
+      @include flex(center, center);
+      width: 4rem;
+      min-width: 4rem;
+      height: 4rem;
+      background: var(--light);
+      color: var(--black);
+      font-size: 2rem;
+      font-weight: 300;
+      text-align: center;
+      border-radius: 75%;
+      margin-right: -2rem;
+      -webkit-box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+      box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+      z-index: 1;
+    }
+    .text {
+      @include flex_grow(1);
+      background: var(--light);
+      padding: 2rem;
+      padding-left: 3.5rem;
+      border-radius: 1rem 3rem 3rem 1rem;
+      -webkit-box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+      box-shadow: rgba(var(--black_rgb), 0.1) 0 1rem 4rem 0;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Work
+|----------------------------------------------------------------------
+*/
+
+#work {
+  background: var(--light_white);
+  padding: 8rem 0;
+  .content {
+    margin: 0 auto 4rem;
+  }
+  .wrapper {
+    @include flex($flow: wrap);
+    margin: -0.1rem;
+    > .column {
+      width: 33.333%;
+      padding: 0.1rem;
+      @include flex;
+    }
+  }
+  .work_blk {
+    @include flex;
+    position: relative;
+    width: 100%;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    &:hover {
+      > div {
+        &.front {
+          -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+        }
+        &.back {
+          -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+        }
+      }
+    }
+    > div {
+      @include pos($z: 1);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-perspective: inherit;
+      perspective: inherit;
+      -webkit-transition: all cubic-bezier(0.5, 0.3, 0.3, 1) 0.6s;
+      transition: all cubic-bezier(0.5, 0.3, 0.3, 1) 0.6s;
+      &.front {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        > img {
+          @include object(cover);
+        }
+      }
+      &.back {
+        @include flex(center, center);
+        background: var(--prime_color);
+        color: var(--light);
+        padding: 4rem;
+        text-align: center;
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        .link_btn {
+          &:not(:hover) {
+            color: var(--light);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Showcase
+|----------------------------------------------------------------------
+*/
+
+#showcase {
+  background: var(--black);
+  padding: 10rem 0;
+  border-radius: 10rem;
+  @include ipad_sm {
+    padding: 8rem 0;
+    border-radius: 6rem;
+  }
+  .content {
+    @include flex(center, space-between);
+    margin-bottom: 8rem;
+    @include mobile_md {
+      display: block;
+      text-align: center;
+      margin-bottom: 4rem;
+      .btn_blk {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+    }
+    h2 {
+      @include flex;
+      color: var(--light);
+      font-size: 10rem;
+      @include ipad_sm {
+        display: block;
+        font-size: 6rem;
+      }
+      @include mobile_md {
+        margin-bottom: 2rem $i;
+      }
+      > em {
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+        margin-left: 3rem;
+        @include transform(skewX(-15deg));
+        @include ipad_sm {
+          display: block;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .wrapper {
+    @include flex;
+    @include gap(0 3rem);
+    @include ipad_sm {
+      // display: block;
+      @include gap(0);
+      @include slider(2rem);
+      margin: -2rem;
+    }
+    > .column {
+      width: 33.3334%;
+      @include ipad_sm {
+        @include flex;
+        width: auto;
+      }
+      &:nth-child(2) {
+        padding-top: 10rem;
+        @include ipad_sm {
+          padding: 0;
+          padding-left: 2rem;
+        }
+      }
+      &:nth-child(3) {
+        padding-top: 30rem;
+        @include ipad_sm {
+          padding: 0;
+          padding-left: 2rem;
+        }
+      }
+    }
+  }
+  .showcase_blk {
+    @include ipad_sm {
+      width: 30rem;
+      min-width: 30rem;
+      &:not(:nth-last-child(1)) {
+        margin: 0;
+        margin-right: 2rem;
+      }
+    }
+  }
+  @at-root {
+    .showcase_blk {
+      &:not(:nth-last-child(1)) {
+        margin-bottom: 3rem;
+      }
+      .image {
+        position: relative;
+        padding-bottom: 120%;
+        margin-bottom: 1.5rem;
+        border-radius: 2rem;
+        -webkit-box-shadow: rgb(0 0 0 / 10%) 0 1rem 4rem;
+        box-shadow: rgb(0 0 0 / 10%) 0 1rem 4rem;
+        overflow: hidden;
+        &:hover {
+          > img {
+            @include transform(scale(1.1));
+          }
+          .overlay {
+            background: rgba(var(--black_rgb), 0.3);
+            padding: 0;
+            opacity: 1;
+          }
+        }
+        > img {
+          @include object($fill: true);
+          -o-object-position: top center;
+          object-position: top center;
+          -webkit-transition: all linear 0.3s;
+          transition: all linear 0.3s;
+        }
+        .overlay {
+          @include pos($z: 1);
+          @include flex(center, center);
+          padding-top: 2rem;
+          opacity: 0;
+          -webkit-transition: all linear 0.3s;
+          transition: all linear 0.3s;
+        }
+      }
+      .text {
+        h4 {
+          color: var(--light);
+          text-align: center;
+        }
+        p {
+          max-width: 26rem;
+          font-size: 1.8rem;
+          font-weight: 200;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+  & + #reviews {
+    margin-top: 12rem;
+    @include ipad_sm {
+      margin-top: 8rem;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Choose
+|----------------------------------------------------------------------
+*/
+
+#choose {
+  padding: 12rem 0;
+  @include ipad_sm {
+    padding: 8rem 0;
+  }
+  &::before {
+    content: "";
+    @include pos($l: 4rem, $z: 1);
+    background: var(--black);
+    border-radius: 12rem;
+    @include ipad {
+      left: 0;
+    }
+    @include ipad_sm {
+      border-radius: 6rem;
+    }
+  }
+  .contain {
+    position: relative;
+    z-index: 3;
+  }
+  .wrapper {
+    @include flex;
+    @include ipad_sm {
+      display: block;
+    }
+    .content {
+      width: 60rem;
+      min-width: 60rem;
+      @include ipad_sm {
+        width: auto;
+        min-width: initial;
+        margin-bottom: 3rem;
+      }
+    }
+    .outer {
+      width: calc(100% - 60rem);
+      padding-left: 6rem;
+      @include ipad_sm {
+        width: 100%;
+        padding-left: 0;
+      }
+    }
+    h2 {
+      color: var(--light);
+      font-size: 10rem;
+      margin-bottom: 5rem;
+      white-space: nowrap;
+      @include ipad_sm {
+        font-size: 6rem;
+        margin-bottom: 3rem;
+      }
+      @include mobile_md {
+        font-size: 4rem;
+      }
+      > span {
+        display: block;
+        font-size: 14rem;
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+        @include ipad_sm {
+          font-size: 8rem;
+        }
+        @include mobile_md {
+          font-size: 6rem;
+        }
+      }
+    }
+  }
+  .choose_blk {
+    width: 100%;
+    background: var(--light);
+    padding: 5rem;
+    border-radius: 4rem;
+    @include ipad_sm {
+      padding: 3rem;
+      border-radius: 3rem;
+    }
+    .image {
+      position: relative;
+      width: 30rem;
+      min-width: 30rem;
+      height: 22rem;
+      margin-bottom: 4rem;
+      border-radius: 12rem;
+      overflow: hidden;
+      @include mobile_md {
+        width: 100%;
+        min-width: initial;
+        max-width: 30rem;
+        height: 14rem;
+      }
+      > img {
+        @include object(cover);
+      }
+    }
+    .text {
+      h3 {
+        font-size: 3.8rem;
+        @include mobile_md {
+          font-size: 2.8rem;
+        }
+      }
+      p {
+        max-width: 30rem;
+        font-size: 2rem;
+        font-weight: 300;
+        @include mobile_md {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+  @at-root {
+    .slick_choose {
+      margin-right: -50rem;
+      // margin-left: -15rem;
+      margin-bottom: 6rem;
+      @include ipad_sm {
+        margin: 0;
+        margin-right: -30rem;
+      }
+      @include mobile_md {
+        margin-right: -28rem;
+      }
+      > div {
+        margin: -4rem -2rem;
+        padding: 3rem 1.5rem;
+        > div {
+          @include flex;
+          > div {
+            @include flex;
+            height: auto;
+            padding: 1rem 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Instagram
+|----------------------------------------------------------------------
+*/
+
+#instagram {
+  padding: 12rem 0;
+  @include ipad_sm {
+    padding: 8rem 0;
+  }
+  .content {
+    text-align: center;
+    max-width: 80rem;
+    margin: 0 auto 6rem;
+    @include ipad_sm {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 14rem;
+      margin-bottom: 3rem;
+      @include ipad_sm {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+      }
+      @include mobile_md {
+        font-size: 4rem;
+      }
+      > em {
+        display: block;
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+        @include transform(skewX(-15deg));
+      }
+    }
+    p {
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 0 10rem;
+      @include ipad_sm {
+        font-size: 2rem;
+        padding: 0 2rem;
+      }
+    }
+  }
+  .wrapper {
+    padding: 0 3rem;
+    @include ipad_sm {
+      padding: 0 2rem;
+    }
+    .insta_blk {
+      position: relative;
+      border-radius: 2rem;
+      -webkit-box-shadow: 0 0.5rem 1.5rem rgba(var(--black_rgb), 0.08);
+      box-shadow: 0 0.5rem 1.5rem rgba(var(--black_rgb), 0.08);
+      overflow: hidden;
+      &:hover {
+        .overlay {
+          padding-top: 0;
+          opacity: 1;
+        }
+      }
+      .overlay {
+        @include pos($z: 1);
+        @include flex(center, center);
+        background: rgba(var(--black_rgb), 0.5);
+        padding-top: 5rem;
+        opacity: 0;
+        > img {
+          width: 4rem;
+          height: 4rem;
+          @include filter(1);
+        }
+      }
+    }
+  }
+  @at-root {
+    .slick_instagram {
+      // margin-bottom: 6rem;
+      > div {
+        margin: -4rem -1.5rem;
+        padding: 3rem 0;
+        @include mobile_md {
+          margin-left: -0.75rem;
+          margin-right: -0.75rem;
+        }
+        > div {
+          @include flex;
+          > div {
+            @include flex;
+            height: auto;
+            padding: 1rem 1.5rem;
+            @include mobile_md {
+              padding-left: 0.75rem;
+              padding-right: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Footer
+|----------------------------------------------------------------------
+*/
+
+#footer {
+  background: var(--black);
+  color: var(--light_gray);
+  padding: 12rem 0 0;
+  margin-top: auto;
+  overflow: hidden;
+  @include ipad_sm {
+    padding: 8rem 0 0;
+  }
+  .top_blk {
+    margin-bottom: 8rem;
+    @include ipad_sm {
+      margin-bottom: 6rem;
+    }
+    .h2 {
+      max-width: 80rem;
+      font-size: 12rem;
+      margin-bottom: 3rem;
+      @include ipad_sm {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+      }
+      @include mobile_md {
+        font-size: 4rem;
+      }
+      > span {
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+    form {
+      @include flex;
+      max-width: 50rem;
+      height: 8rem;
+      background: var(--light);
+      border-radius: 10rem;
+      overflow: hidden;
+      @include mobile_md {
+        height: 7rem;
+      }
+      input {
+        @include flex_grow(1 1);
+        background: transparent;
+        font-size: 2rem;
+        padding: 0 2rem;
+        border: 0;
+        @include mobile_md {
+          font-size: 1.6rem;
+        }
+      }
+      button {
+        -ms-flex-item-align: center;
+        align-self: center;
+        background: transparent;
+        @include mobile_md {
+          padding: 0 2rem;
+        }
+        color: var(--black);
+      }
+    }
+  }
+  .mid_blk {
+    padding: 8rem 0 6rem;
+    border-top: 0.1rem solid rgba(var(--light_rgb), 0.2);
+    border-bottom: 0.1rem solid rgba(var(--light_rgb), 0.2);
+    @include ipad_sm {
+      padding: 6rem 0 4rem;
+    }
+  }
+  a {
+    color: var(--light_gray);
+    &:hover {
+      color: var(--prime_color);
+    }
+  }
+  .h4 {
+    margin-bottom: 3rem;
+  }
+  .list {
+    @include list;
+    > li {
+      &:not(:nth-last-child(1)) {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  .social_list {
+    @include list;
+    @include flex;
+    @include gap(1rem);
+    > li {
+      > a {
+        @include flex(center, center);
+        width: 4.6rem;
+        min-width: 4.6rem;
+        height: 4.6rem;
+        background: #444;
+        padding: 1.4rem;
+        border-radius: 75%;
+        &:hover {
+          opacity: 0.8;
+        }
+        > img {
+          @include filter(1);
+        }
+      }
+    }
+  }
+  .wrapper {
+    @include flex($flow: wrap);
+    margin: -1.5rem;
+    > .column {
+      padding: 1.5rem;
+      &:nth-child(1) {
+        width: 34%;
+        @include ipad_sm {
+          width: 100%;
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        width: 22%;
+        @include ipad_sm {
+          width: 50%;
+        }
+      }
+    }
+  }
+  .copyright {
+    padding: 5rem 0;
+    text-align: center;
+    @include ipad_sm {
+      padding: 4rem 0;
+    }
+    p {
+      margin: 0;
+      > a {
+        color: var(--light);
+        text-decoration: underline;
+        &:hover {
+          color: var(--prime_color);
+        }
+      }
+    }
+  }
+}
+
+.rating {
+  @include flex(center, flex-end);
+  @include gap(0.5rem);
+  color: var(--yellow);
+  direction: rtl;
+  > i {
+    width: 1.6rem;
+    min-width: 1.6rem;
+    height: 1.6rem;
+    @include star;
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Our Team
+|----------------------------------------------------------------------
+*/
+
+#team {
+  background: var(--black);
+  color: var(--light);
+  padding: 12rem 0;
+  border-radius: 12rem;
+  @include ipad_sm {
+    padding: 8rem 0;
+    border-radius: 6rem;
+  }
+  .content {
+    max-width: 54rem;
+    margin-bottom: 5rem;
+    @include ipad_sm {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 12rem;
+      @include ipad_sm {
+        font-size: 8rem;
+      }
+      @include mobile_md {
+        font-size: 6rem;
+      }
+      > span {
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+    p {
+      font-size: 3rem;
+      font-weight: 200;
+      @include ipad_sm {
+        font-size: 2rem;
+      }
+    }
+  }
+  .wrapper {
+    @include flex($flow: wrap);
+    margin: -3rem -1.5rem;
+    @include ipad_sm {
+      @include slider(0 1rem);
+      margin: -3rem -2rem;
+    }
+    > .column {
+      width: 25%;
+      padding: 3rem 1.5rem;
+      @include ipad_sm {
+        width: auto;
+        padding: 3rem 1rem;
+      }
+    }
+  }
+  .team_blk {
+    text-align: center;
+    @include ipad_sm {
+      width: 22rem;
+      min-width: 22rem;
+    }
+    &:hover {
+      .image {
+        > img {
+          @include transform(scale(1.1));
+        }
+      }
+    }
+    .image {
+      position: relative;
+      padding-bottom: 120%;
+      margin-bottom: 2rem;
+      border-radius: 3rem;
+      overflow: hidden;
+      > img {
+        @include object($fill: true);
+        -webkit-transition: all linear 0.3s;
+        transition: all linear 0.3s;
+      }
+    }
+    .text {
+      p {
+        opacity: 0.5;
+      }
+    }
+    .social {
+      @include list;
+      @include flex(center, center);
+      @include gap(1rem);
+      > li {
+        > a {
+          @include flex(center, center);
+          width: 4.6rem;
+          min-width: 4.6rem;
+          height: 4.6rem;
+          background: #444;
+          padding: 1.4rem;
+          border-radius: 75%;
+          &:hover {
+            opacity: 0.8;
+          }
+          > img {
+            @include filter(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Our Core
+|----------------------------------------------------------------------
+*/
+
+#core {
+  padding: 12rem 0;
+  @include ipad_sm {
+    padding: 6rem 0 8rem;
+  }
+  .wrapper {
+    @include flex(center, space-between);
+    @include ipad_sm {
+      display: block;
+    }
+    .content {
+      @include flex_grow(1);
+      h2 {
+        font-size: 10rem;
+        @include ipad_sm {
+          font-size: 6rem;
+        }
+        @include mobile_md {
+          font-size: 4rem;
+        }
+        > span {
+          display: block;
+          font-weight: 400;
+          font-family: var(--font-museo-sans);
+          @include transform(skewX(-15deg));
+        }
+      }
+      p {
+        max-width: 54rem;
+        font-size: 2.4rem;
+        font-weight: 200;
+      }
+    }
+    .image {
+      width: 50rem;
+      min-width: 50rem;
+      height: 30rem;
+      margin-left: 5rem;
+      border-radius: 30rem;
+      overflow: hidden;
+      @include ipad_sm {
+        width: 100%;
+        min-width: initial;
+        max-width: 50rem;
+        height: 20rem;
+        margin: 2rem 0 0;
+      }
+      > img {
+        @include object(cover);
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Agency
+|----------------------------------------------------------------------
+*/
+
+#agency {
+  background: #dbdbdb;
+  padding: 12rem 0 24rem;
+  margin-bottom: -12rem;
+  border-radius: 12rem 12rem 0 0;
+  @include ipad_sm {
+    padding: 8rem 0 16rem;
+    margin-bottom: -8rem;
+    border-radius: 6rem 6rem 0 0;
+  }
+  .content {
+    margin-bottom: 4rem;
+    text-align: center;
+    @include ipad_sm {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 16rem;
+      @include ipad_sm {
+        font-size: 8rem;
+      }
+      @include mobile_md {
+        font-size: 5rem;
+      }
+      > span {
+        display: block;
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+  }
+  .wrapper {
+    @include flex;
+    @include gap(3rem);
+    @include ipad_sm {
+      @include flex($flow: wrap);
+    }
+    > .column {
+      width: 33.3334%;
+      @include ipad_sm {
+        width: 100%;
+      }
+      &:nth-child(2) {
+        padding-top: 10rem;
+        @include ipad_sm {
+          padding-top: 0;
+        }
+      }
+      &:nth-child(3) {
+        padding-top: 30rem;
+        @include ipad_sm {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  .inner {
+    background: var(--light);
+    padding: 6rem 5rem;
+    border-radius: 3rem;
+    -webkit-box-shadow: 0 0.5rem 1.5rem rgba(var(--black_rgb), 0.08);
+    box-shadow: 0 0.5rem 1.5rem rgba(var(--black_rgb), 0.08);
+    @include mobile_md {
+      padding: 4rem 3rem;
+    }
+    .image {
+      position: relative;
+      // width: 30rem;
+      // min-width: 30rem;
+      height: 22rem;
+      margin-bottom: 4rem;
+      border-radius: 12rem;
+      overflow: hidden;
+      @include mobile_md {
+        height: 18rem;
+        margin-bottom: 3rem;
+      }
+      > img {
+        @include object(cover);
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Connect
+|----------------------------------------------------------------------
+*/
+
+#connect {
+  padding: 10rem 0 12rem;
+  @include ipad_sm {
+    padding: 6rem 0 8rem;
+  }
+  .content {
+    @include flex(center, space-between);
+    margin-bottom: 4rem;
+    @include ipad_sm {
+      display: block;
+    }
+    @include mobile_md {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 10rem;
+      margin: 0;
+      margin-right: 6rem;
+      white-space: nowrap;
+      @include ipad_sm {
+        font-size: 6rem;
+        margin: 0 0 2rem;
+      }
+      @include mobile_md {
+        font-size: 4rem;
+      }
+      > span {
+        display: block;
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+    p {
+      font-size: 3rem;
+      @include ipad_sm {
+        font-size: 2rem;
+      }
+    }
+  }
+  .wrapper {
+    @include flex;
+    @include ipad_sm {
+      display: block;
+    }
+    > .inner {
+      width: 40rem;
+      min-width: 40rem;
+      margin-right: 5rem;
+      @include ipad_sm {
+        width: auto;
+        min-width: initial;
+        margin: 0 0 3rem;
+      }
+    }
+  }
+  .item {
+    @include flex;
+    margin-bottom: 2rem;
+    .ico {
+      width: 2rem;
+      min-width: 2rem;
+      height: 2rem;
+      margin-top: 0.4rem;
+      margin-right: 2rem;
+    }
+    .txt {
+      -ms-flex-item-align: center;
+      align-self: center;
+    }
+  }
+  .form_wrapper {
+    @include flex_grow(1);
+    background: var(--black);
+    color: var(--light);
+    padding: 6rem;
+    border-radius: 4rem;
+    @include mobile_md {
+      padding: 4rem;
+      border-radius: 3rem;
+    }
+    h3 {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      @include mobile_md {
+        font-size: 3rem;
+      }
+      > span {
+        // display: block;
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+    label {
+      font-size: 1.4rem;
+    }
+    .input {
+      background: transparent;
+      color: var(--light);
+      font-size: 2rem;
+      font-weight: 200;
+      padding-left: 0;
+      padding-right: 0;
+      border: 0;
+      border-bottom: 0.2rem solid rgba(var(--light_rgb), 0.2);
+      border-radius: 0;
+      @include placeholder(var(--light), 0.5);
+      @include mobile_md {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Projects
+|----------------------------------------------------------------------
+*/
+
+#projects {
+  padding: 12rem 0;
+  @include ipad_sm {
+    padding: 6rem 0 8rem;
+  }
+  h2 {
+    font-size: 10rem;
+    margin-bottom: 5rem;
+    @include ipad_sm {
+      font-size: 6rem;
+      margin-bottom: 3rem;
+    }
+    @include mobile_md {
+      font-size: 4rem;
+    }
+    > span {
+      font-weight: 400;
+      font-family: var(--font-museo-sans);
+    }
+  }
+  .wrapper {
+    @include flex;
+    @include gap(0 3rem);
+    @include ipad_sm {
+      display: block;
+    }
+    > .column {
+      width: 33.3334%;
+      @include ipad_sm {
+        width: 100%;
+      }
+      &:nth-child(2) {
+        padding-top: 15rem;
+        @include ipad_sm {
+          padding-top: 3rem;
+        }
+      }
+      &:nth-child(3) {
+        padding-top: 5rem;
+        @include ipad_sm {
+          padding-top: 3rem;
+        }
+      }
+    }
+  }
+  .showcase_blk {
+    h4 {
+      color: var(--black);
+      text-align: left;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Match
+|----------------------------------------------------------------------
+*/
+
+#match {
+  .block_01 {
+    padding: 12rem 0;
+    @include ipad_sm {
+      padding: 6rem 0 8rem;
+    }
+    .content {
+      h2 {
+        font-size: 12rem;
+        @include ipad_sm {
+          font-size: 6rem;
+        }
+        @include mobile_md {
+          font-size: 4rem;
+        }
+        > span {
+          // display: block;
+          font-weight: 400;
+          font-family: var(--font-museo-sans);
+        }
+      }
+      h5 {
+        max-width: 48rem;
+        font-size: 4rem;
+        font-weight: 200;
+        margin: auto;
+        @include ipad_sm {
+          font-size: 3rem;
+        }
+      }
+    }
+    p {
+      max-width: 90rem;
+      font-size: 4rem;
+      margin: auto;
+      text-align: center;
+      @include ipad_sm {
+        font-size: 3rem;
+      }
+      @include mobile_md {
+        font-size: 2rem;
+      }
+    }
+    .image {
+      max-width: 120rem;
+      height: 50rem;
+      margin: 4rem auto 3rem;
+      border-radius: 40rem;
+      overflow: hidden;
+      > img {
+        @include object(cover);
+      }
+    }
+    .video {
+      position: relative;
+      max-width: 120rem;
+      height: 50rem;
+      margin: 4rem auto 3rem;
+      border-radius: 40rem;
+      overflow: hidden;
+      @include ipad_sm {
+        height: 40rem;
+      }
+      @include mobile_md {
+        height: 30rem;
+      }
+      @include mobile_sm {
+        height: 20rem;
+      }
+      > video {
+        @include pos;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+  }
+  .block_02 {
+    background: var(--black);
+    color: var(--light);
+    padding: 12rem 0;
+    border-radius: 12rem;
+    @include ipad_sm {
+      padding: 8rem 0;
+      border-radius: 6rem;
+    }
+    .wrapper {
+      @include flex(center, space-between);
+      border-bottom: 0.2rem solid rgba(var(--light_rgb), 0.2);
+      margin-bottom: 5rem;
+      padding-bottom: 6rem;
+      @include ipad_sm {
+        display: block;
+        margin-bottom: 4rem;
+        padding-bottom: 4rem;
+      }
+      h2 {
+        font-size: 16rem;
+        font-family: var(--font-museo-sans);
+        line-height: 1;
+        margin: 0;
+        @include ipad_sm {
+          font-size: 8rem;
+        }
+        @include mobile_md {
+          font-size: 6rem;
+        }
+      }
+      .image {
+        width: 40rem;
+        min-width: 40rem;
+        height: 26rem;
+        border-radius: 20rem;
+        overflow: hidden;
+        @include ipad_sm {
+          width: 100%;
+          min-width: initial;
+          max-width: 40rem;
+          height: 22rem;
+          margin-top: 3rem;
+        }
+        > img {
+          @include object(cover);
+        }
+      }
+    }
+    .content {
+      max-width: 80rem;
+      margin-left: auto;
+      p {
+        font-size: 3rem;
+        line-height: 1.4;
+        @include ipad_sm {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  .block_03 {
+    padding: 12rem 0 0;
+    @include ipad_sm {
+      padding: 8rem 0 0;
+    }
+    h2 {
+      font-size: 14rem;
+      margin-right: 8rem;
+      white-space: nowrap;
+      @include ipad_sm {
+        font-size: 8rem;
+        text-align: center;
+        margin-right: 0;
+      }
+      @include mobile_md {
+        font-size: 6rem;
+      }
+      > span {
+        display: block;
+        font-size: 12rem;
+        font-family: var(--font-museo-sans);
+        font-weight: 400;
+        @include ipad_sm {
+          font-size: 6rem;
+        }
+        @include mobile_md {
+          font-size: 4rem;
+        }
+      }
+    }
+    .image_blk {
+      @include flex(flex-start);
+      @include gap(4rem);
+      margin: 6rem 0;
+      @include ipad_sm {
+        @include flex(center, $flow: wrap);
+        @include gap(3rem);
+        margin: 3rem 0;
+      }
+      .image {
+        position: relative;
+        width: 100%;
+        max-width: 44rem;
+        border-radius: 4rem;
+        overflow: hidden;
+        @include ipad_sm {
+          margin: auto;
+          border-radius: 3rem;
+        }
+        &:nth-child(2) {
+          margin-top: 8rem;
+          @include ipad_sm {
+            margin-top: 0;
+          }
+        }
+        &::before {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+        > img {
+          @include object($fill: true);
+        }
+      }
+    }
+    p {
+      max-width: 60rem;
+      font-size: 2rem;
+      @include ipad_sm {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Solution
+|----------------------------------------------------------------------
+*/
+
+#solution {
+  background: var(--prime_color);
+  // color: var(--light);
+  background-size: 0;
+  padding: 12rem 0;
+  margin: 12rem 0;
+  border-radius: 12rem;
+  @include ipad_sm {
+    padding: 8rem 0;
+    margin: 8rem 0;
+    border-radius: 6rem;
+  }
+  &::before {
+    content: "";
+    @include pos($z: 1);
+    background-image: inherit;
+    @include bg(cover);
+  }
+  .contain {
+    position: relative;
+    z-index: 3;
+  }
+  h1 {
+    font-size: 16rem;
+    font-family: var(--font-museo-sans);
+    @include ipad_sm {
+      font-size: 10rem;
+    }
+    @include mobile_md {
+      font-size: 8rem;
+    }
+    @include mobile_sm {
+      font-size: 6rem;
+    }
+  }
+  .content {
+    max-width: 70rem;
+    font-size: 4rem;
+    margin-top: 5rem;
+    @include ipad_sm {
+      font-size: 3rem;
+      margin-top: 4rem;
+    }
+    @include mobile_md {
+      font-size: 2.2rem;
+      margin-top: 3rem;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Terms
+|----------------------------------------------------------------------
+*/
+
+#terms {
+  padding: 10rem 0 12rem;
+  @include ipad_sm {
+    padding: 6rem 0 8rem;
+  }
+  .text {
+    margin-bottom: 6rem;
+    @include ipad_sm {
+      margin-bottom: 4rem;
+    }
+    h2 {
+      font-size: 10rem;
+      margin-bottom: 2rem;
+      @include ipad_sm {
+        font-size: 6rem;
+      }
+      @include mobile_md {
+        font-size: 4rem;
+      }
+      > span {
+        font-weight: 400;
+        font-family: var(--font-museo-sans);
+      }
+    }
+    p {
+      max-width: 54rem;
+      font-size: 3rem;
+      @include ipad_sm {
+        font-size: 2rem;
+      }
+    }
+  }
+  .content {
+    background: var(--light_gray);
+    color: var(--black);
+    padding: 6rem 5rem;
+    border-radius: 8rem;
+    @include ipad_sm {
+      padding: 4rem 3rem;
+      border-radius: 4rem;
+    }
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|		Studio
+|----------------------------------------------------------------------
+*/
+
+#studio {
+  background: var(--black);
+  padding: 14rem 0;
+  border-radius: 10rem;
+  @include ipad_sm {
+    padding: 6rem 0;
+    border-radius: 6rem;
+  }
+  .contain {
+    position: relative;
+    z-index: 3;
+  }
+  .content {
+    max-width: 72rem;
+    color: var(--light);
+    h1 {
+      @include flex;
+      font-size: 13rem;
+      font-family: var(--font-museo-sans);
+      @include ipad_sm {
+        font-size: 8rem;
+      }
+      @include ipad_sm {
+        font-size: 6rem;
+      }
+      span {
+        font-weight: 400;
+        margin-left: 3rem;
+        @include transform(skewX(-15deg));
+        @include ipad_sm {
+          margin-left: 2rem;
+        }
+      }
+      & + p {
+        font-size: 7rem;
+        @include ipad_sm {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+  .vid_blk {
+    @include pos($l: 50%, $z: 1);
+    -webkit-filter: brightness(0.9) invert(1) grayscale(1);
+    filter: brightness(0.9) invert(1) grayscale(1);
+    overflow: hidden;
+    @include ipad_sm {
+      left: 0;
+      opacity: 0.1;
+    }
+    > video {
+      @include pos;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+}
+// =====.service_blocks=====
+#serve.service_blocks {
+  .content {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 31px;
+  }
+  .ico {
+    width: 5rem;
+    min-width: 5rem;
+    height: 5rem;
+  }
+}
+// ========
+.offering {
+  background: var(--black);
+  padding: 12rem 0;
+  border-radius: 12rem;
+  overflow: hidden;
+  margin-top: 12rem;
+  color: var(--light);
+  h2 {
+    display: flex;
+    -webkit-box-orient: vertical;
+    color: var(--light);
+    font-size: 10rem;
+    justify-content: center;
+    em {
+      font-weight: 400;
+      font-family: var(--font-museo-sans);
+      margin-left: 2rem;
+      transform: skewX(-15deg);
+    }
+  }
+  .flex {
+    display: flex;
+    -webkit-box-orient: vertical;
+    gap: 0 3rem;
+    grid-gap: 0 3rem;
+    .column {
+      width: calc(100% / 3);
+      padding: 15px;
+      &:nth-child(2) {
+        padding-top: 10rem;
+      }
+      .inner {
+        margin-top: 6rem;
+        background: #fff;
+        padding: 3rem;
+        text-align: center;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+        color: var(--black);
+        .image {
+          position: relative;
+          padding-bottom: 70%;
+          margin-bottom: 20px;
+          img {
+            @include pos($z: 2);
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+          }
+          h3 {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+  }
+}
+// ========
+#match {
+  .block_03 {
+    padding-top: 0;
+  }
+  .block_05 {
+    background: #fff;
+    color: #000;
+    .wrapper {
+      border-bottom: 0.2rem solid #d2d2d2;
+    }
+    .image {
+      img {
+        object-position: top !important;
+      }
+    }
+  }
+}
