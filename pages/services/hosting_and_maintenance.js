@@ -97,7 +97,8 @@ const HostingAndMaintenance = () => {
                     Safeguard your data with our regular backup procedures and
                     robust security protocols. We implement measures to protect
                     against data loss and unauthorized access, prioritizing the
-                    confidentiality and integrity of your website's information.
+                    confidentiality and integrity of your website&apos;s
+                    information.
                   </p>
                 </div>
               </div>

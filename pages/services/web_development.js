@@ -64,7 +64,7 @@ const WebDevelopment = () => {
                     We craft bespoke websites that are uniquely designed to
                     represent your brand and engage your target audience.
                     Whether you need a corporate website, portfolio site, or
-                    e-commerce platform, we've got you covered.
+                    e-commerce platform, we have got you covered.
                   </p>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const WebDevelopment = () => {
                 <div className={style.sub_content}>
                   <h3>Content Management Systems (CMS)</h3>
                   <p>
-                    Take control of your website's content with our CMS
+                    Take control of your websites content with our CMS
                     solutions. We integrate user-friendly systems like WordPress
                     or custom CMS to empower you to manage and update your site
                     effortlessly.
@@ -138,7 +138,7 @@ const WebDevelopment = () => {
                   <h3>Web Application Development</h3>
                   <p>
                     Beyond websites, we create robust web applications to
-                    streamline your business processes. Whether it's a customer
+                    streamline your business processes. Whether it is a customer
                     portal, project management tool, or internal communication
                     platform, we can build it.
                   </p>

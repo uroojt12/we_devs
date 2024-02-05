@@ -62,9 +62,9 @@ const GraphicDesign = () => {
                 <div className={style.sub_content}>
                   <h3>Crafting Your Signature Logo</h3>
                   <p>
-                    Your logo is more than an image; it's your brand's identity.
-                    Let us create a one-of-a-kind logo that speaks volumes about
-                    your unique story.
+                    Your logo is more than an image; it&apos;s your brand&apos;s
+                    identity. Let us create a one-of-a-kind logo that speaks
+                    volumes about your unique story.
                   </p>
                 </div>
               </div>
@@ -75,9 +75,9 @@ const GraphicDesign = () => {
                 <div className={style.sub_content}>
                   <h3>Captivating Your Online Audience</h3>
                   <p>
-                    Your logo is more than an image; it's your brand's identity.
-                    Let us create a one-of-a-kind logo that speaks volumes about
-                    your unique story.
+                    Your logo is more than an image; it&apos;s your brand&apos;s
+                    identity. Let us create a one-of-a-kind logo that speaks
+                    volumes about your unique story.
                   </p>
                 </div>
               </div>
@@ -88,11 +88,11 @@ const GraphicDesign = () => {
                   <Image width={1000} height={1000} src={Offer_3} alt="" />
                 </div>
                 <div className={style.sub_content}>
-                  <h3>Building Your Brand's Identity</h3>
+                  <h3>Building Your Brand&apos;s Identity</h3>
                   <p>
-                    Your logo is more than an image; it's your brand's identity.
-                    Let us create a one-of-a-kind logo that speaks volumes about
-                    your unique story.
+                    Your logo is more than an image; it&apos;s your brand&apos;s
+                    identity. Let us create a one-of-a-kind logo that speaks
+                    volumes about your unique story.
                   </p>
                 </div>
               </div>
@@ -103,9 +103,9 @@ const GraphicDesign = () => {
                 <div className={style.sub_content}>
                   <h3>Packaging Your Products with Style</h3>
                   <p>
-                    Your logo is more than an image; it's your brand's identity.
-                    Let us create a one-of-a-kind logo that speaks volumes about
-                    your unique story.
+                    Your logo is more than an image; it&apos;s your brand&apos;s
+                    identity. Let us create a one-of-a-kind logo that speaks
+                    volumes about your unique story.
                   </p>
                 </div>
               </div>
@@ -118,9 +118,9 @@ const GraphicDesign = () => {
                 <div className={style.sub_content}>
                   <h3>Transforming Your Ideas into Print</h3>
                   <p>
-                    Your logo is more than an image; it's your brand's identity.
-                    Let us create a one-of-a-kind logo that speaks volumes about
-                    your unique story.
+                    Your logo is more than an image; it&apos;s your brand&apos;s
+                    identity. Let us create a one-of-a-kind logo that speaks
+                    volumes about your unique story.
                   </p>
                 </div>
               </div>

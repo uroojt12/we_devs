@@ -101,7 +101,7 @@ export default function Match() {
                 <p>
                   Every pixel we place is a deliberate step toward achieving
                   your business goals. Our strategic design thinking ensures
-                  that your website isn't just aesthetically pleasing but also
+                  that your website is not just aesthetically pleasing but also
                   serves a purpose – driving engagement and conversions.
                 </p>
                 <p>
@@ -129,7 +129,7 @@ export default function Match() {
               </Link>
               <div className={style.content}>
                 <p>
-                  At We devs, we don't just build websites; we engineer digital
+                  At We devs, we do not just build websites; we engineer digital
                   experiences. Our web development services are a testament to
                   innovation, functionality, and a commitment to bringing your
                   vision to life
@@ -161,9 +161,9 @@ export default function Match() {
               </Link>
               <div className={style.content}>
                 <p>
-                  At we devs, we don't just keep up with technology; we lead the
-                  way. Our commitment to innovation is evident in every solution
-                  we provide.
+                  At we devs, we do not just keep up with technology; we lead
+                  the way. Our commitment to innovation is evident in every
+                  solution we provide.
                 </p>
                 <p>
                   We navigate the ever-evolving tech landscape with expertise in
