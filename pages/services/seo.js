@@ -64,7 +64,7 @@ const SEO = () => {
                 <div className={style.sub_content}>
                   <h3>Comprehensive SEO Audit</h3>
                   <p>
-                    In-depth analysis of your website's current SEO status.
+                    In-depth analysis of your website&apos;s current SEO status.
                     Identification of strengths, weaknesses, and opportunities
                     for improvement. Customized recommendations based on the
                     audit results.
