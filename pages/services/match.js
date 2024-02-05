@@ -115,7 +115,7 @@ export default function Match() {
         <div className={style.block_02}>
           <div className={style.contain}>
             <div className={style.wrapper}>
-              <h2 style={{ fontSize: "15rem;" }}>Website Development</h2>
+              <h2>Website Development</h2>
               <div className={style.image}>
                 <Image width={1000} height={800} src={Web6} alt="" />
               </div>
@@ -176,7 +176,7 @@ export default function Match() {
         <div className={style.block_02}>
           <div className={style.contain}>
             <div className={style.wrapper}>
-              <h2 style={{ fontSize: "15rem;" }}> Hosting and Maintenance</h2>
+              <h2> Hosting and Maintenance</h2>
               <div className={style.image}>
                 <Image width={1000} height={800} src={Host1} alt="" />
               </div>
