@@ -197,8 +197,8 @@ const WebDesign = () => {
                 <h2>Fast Turnaround</h2>
                 <p>
                   If you really want to level up, our custom web design
-                  solutions are where it&lsquo;s at. Your brand is unique, so it
-                  goes without saying, your e-commerce experience should be too!
+                  solutions are where it's at. Your brand is unique, so it goes
+                  without saying, your e-commerce experience should be too!
                 </p>
               </div>
             </div>
