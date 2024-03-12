@@ -15,7 +15,7 @@ export default function Footer() {
     <>
       <footer id={style.footer}>
         <div className={style.contain}>
-          <div className={style.top_blk}>
+          {/* <div className={style.top_blk}>
             <div className={`h2 ${style.h2}`}>
               Subscribe to <span>our newsletter</span>
             </div>
@@ -26,7 +26,7 @@ export default function Footer() {
                 className={style.site_btn}
                 aria-label="Submit"></button>
             </form>
-          </div>
+          </div> */}
           <div className={style.mid_blk}>
             <div className={style.wrapper}>
               <div className={style.column}>

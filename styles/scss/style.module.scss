@@ -1371,8 +1371,9 @@
     }
   }
   .mid_blk {
-    padding: 8rem 0 6rem;
-    border-top: 0.1rem solid rgba(var(--light_rgb), 0.2);
+    padding: 6rem 0;
+    padding-top: 0 !important;
+    // border-top: 0.1rem solid rgba(var(--light_rgb), 0.2);
     border-bottom: 0.1rem solid rgba(var(--light_rgb), 0.2);
     @include ipad_sm {
       padding: 6rem 0 4rem;
