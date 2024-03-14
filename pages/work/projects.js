@@ -37,14 +37,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://axiomtechnology.io/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Axiom Technology</h4>
-                  <p>Sleep app helps millions fall asleep every night</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -53,14 +53,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://blootopia.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Blootopia</h4>
-                  <p>The First Super-App in Latin America</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -69,14 +69,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://bridge-axis.vercel.app/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Bridge Axis</h4>
-                  <p>The best tool for stop-motion animation</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -85,16 +85,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://campvine.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Campvine</h4>
-                  <p>
-                    Official website of Riyadh, Saudi Arabia&lsquo;s capital
-                  </p>
                 </div>
               </div>
             </div>
@@ -105,14 +103,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://www.crainly.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Crainly</h4>
-                  <p>Sales tool for increasing conversions</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -121,14 +119,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="http://cultural-candy.herokuapp.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Cultural Candy</h4>
-                  <p>Cloud based network management</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -137,14 +135,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://modiglianiantiquites.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Modigliani Antiquités</h4>
-                  <p>Wine marketplace with interactive learning</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -153,14 +151,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://www.herosolutions.com.pk/metoo/orow/index.php"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Orow Construction</h4>
-                  <p>Galvanized steel metal frame manufacturer</p>
                 </div>
               </div>
             </div>
@@ -187,14 +185,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://tastehub.com.au/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>Taste Hub</h4>
-                  <p>The First Super-App in Latin America</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -203,14 +201,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://theethicalchoice.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>The Ethical Choice</h4>
-                  <p>Wine marketplace with interactive learning</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -219,14 +217,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://thegeneva-collection.com/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>The Geneva Collection</h4>
-                  <p>Wine marketplace with interactive learning</p>
                 </div>
               </div>
               <div className={style.showcase_blk}>
@@ -235,14 +233,14 @@ export default function Projects() {
                   <div className={style.overlay}>
                     <Link
                       href="https://wedevs-sigma.vercel.app/"
-                      className={`${style.site_btn} ${style.simple} ${style.round}`}>
+                      className={`${style.site_btn} ${style.simple} ${style.round}`}
+                    >
                       Explore
                     </Link>
                   </div>
                 </div>
                 <div className={style.text}>
                   <h4>WeDevs</h4>
-                  <p>Wine marketplace with interactive learning</p>
                 </div>
               </div>
             </div>
